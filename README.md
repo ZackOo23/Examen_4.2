@@ -2,7 +2,7 @@
 Control de robot diferencial (Puzzlebot) con cinco estrategias de control, análisis de estabilidad de Lyapunov, retratos de fase y dashboard en tiempo real.
 
 Video demostrativo:
-
+https://youtu.be/B1MJl_FetrQ?si=gFaJjcNQtSFqrsaN
 
 ---
 
@@ -115,25 +115,30 @@ colcon build --packages-select puzzlebot_control
 source install/setup.bash
 ```
 
-# Uso rápido
+# Terminal 1 - Gazebo
 
 ```bash
-bash# Terminal 1 — Gazebo + controladores + dashboard
 ros2 launch puzzlebot_control gazebo.launch.py
 ```
 
-# Terminal 2 — Teleop
+# Terminal 2 — hardware_bridge.py
 
+```bash
+ros2 run puzzlebot_control hardware_bridge --ros-args -p port:=/dev/ttyUSB0 -p baudrate:=115200 -p wheel_radius:=0.03 -p wheel_base:=0.18
+```
+
+# Terminal 3 - Teleop_keyboard
 ```bash
 ros2 run puzzlebot_control teleop_keyboard
 ```
+En teleop_keyboard.py, se presiona 1–5 para seleccionar controlador, luego G para enviar el goal a (2.0, 1.5). Todos funcionales
 
 # Terminal 3 — Dashboard
 
 ```bash
 xdg-open http://localhost:8080
-En el teleop: presiona 1–5 para seleccionar controlador, luego G para enviar el goal a (2.0, 1.5).
 ```
+Muy lento. Es necesario reiniciar cada que se trabe
 
 # Trayectorias personalizadas
 
