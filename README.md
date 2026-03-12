@@ -1,4 +1,4 @@
-## Puzzlebot Simulation and Real Implementation Control With ROS2
+<img width="1428" height="619" alt="image" src="https://github.com/user-attachments/assets/d82eee52-f33e-4d42-8fbe-c8844f9690c2" />## Puzzlebot Simulation and Real Implementation Control With ROS2
 Control de robot diferencial (Puzzlebot) con cinco estrategias de control, análisis de estabilidad de Lyapunov, retratos de fase y dashboard en tiempo real.
 
 Video demostrativo:
@@ -36,6 +36,21 @@ Dashboard en tiempo real (localhost:8080)
 El dashboard muestra en vivo:
 <img width="1484" height="620" alt="image" src="https://github.com/user-attachments/assets/94737eac-f06c-4f84-aa34-fee8330a0a0c" />
 
+Trayectoria de circulo con controlador PID:
+<img width="1428" height="619" alt="image" src="https://github.com/user-attachments/assets/8bfea571-4f17-409e-ba12-6cb6b3283e9c" />
+
+Trayectoria de circulo con controlador SMC:
+<img width="1431" height="623" alt="image" src="https://github.com/user-attachments/assets/a8971fbd-57cc-4e5b-869e-9f502ffafafc" />
+
+Trayectoria de circulo con controlador ISMC:
+<img width="1429" height="624" alt="image" src="https://github.com/user-attachments/assets/c16166aa-529f-4601-9345-de87a3117dd3" />
+
+Trayectoria de circulo con controlador CTC:
+<img width="1430" height="620" alt="image" src="https://github.com/user-attachments/assets/56b3b91e-bacd-4a35-ba6c-b335fad7cd33" />
+
+Trayectoria de circulo con Port-Hamiltonian:
+<img width="1429" height="619" alt="image" src="https://github.com/user-attachments/assets/089121cd-c502-4a9d-a455-0002a7ab0c3e" />
+
 ---
 
 Lyapunov V(t) — función de energía, debe decrecer monotónicamente a 0
@@ -55,7 +70,7 @@ Retratos de fase en espacio de distancia, ángulo y velocidad
 # Observaciones por controlador
 PID:
 
-El controlador más simple. Converge suavemente al setpoint con oscilación mínima. La función de Lyapunov desciende de forma consistente. Sensible al tuning de ganancias pero predecible en comportamiento.
+El controlador más simple. Converge suavemente al setpoint con oscilación mínima. La función de Lyapunov desciende de forma consistente. Sensible al tuning de ganancias pero predecible en comportamiento. El mejor de todo el conjunto por su bajo error visto en graficación.
 
 SMC:
 
@@ -71,7 +86,7 @@ Linealiza la dinámica del robot mediante cancelación de no linealidades. Compo
 
 Port-Hamiltonian:
 
-Enfoque basado en energía. La función Hamiltoniana actúa como Lyapunov natural del sistema. Convergencia suave con geometría de atractor bien definida en el espacio de velocidades.
+Demostró inestabilidad en las pruebas realizadas a pesar de ofrecer la mayor garantía de estbailidad del conjunto de controladores, lo cual puede deberse al desajuste de los parámetros utilizados tanto en la simulación como en la vida real
 
 # Comparativa de desempeño
 | Controlador | Convergencia | Robustez ante perturbaciones | Complejidad |
@@ -86,7 +101,7 @@ Enfoque basado en energía. La función Hamiltoniana actúa como Lyapunov natura
 
 Conclusión: 
 
-Para el caso de navegación a un setpoint en condiciones nominales, el PID ofrece el mejor balance entre simplicidad y desempeño. Para escenarios con perturbaciones de terreno, SMC e ISMC son preferibles por su robustez inherente. El controlador Port-Hamiltonian destaca en fundamento teórico y garantías formales de estabilidad.
+Para el caso de navegación a un setpoint en condiciones nominales, el PID ofrece el mejor balance entre simplicidad y desempeño. Para escenarios con perturbaciones de terreno, SMC e ISMC son preferibles por su robustez inherente, sin embargo, no se identifico un mejor rendimiento, mientras que el controlador Port-Hamiltonian destaca en fundamento teórico y garantías formales de estabilidad pero demostro inestabilidad
 
 ---
 
