@@ -1,4 +1,4 @@
-<img width="1428" height="619" alt="image" src="https://github.com/user-attachments/assets/d82eee52-f33e-4d42-8fbe-c8844f9690c2" />## Puzzlebot Simulation and Real Implementation Control With ROS2
+## Puzzlebot Simulation and Real Implementation Control With ROS2
 Control de robot diferencial (Puzzlebot) con cinco estrategias de control, análisis de estabilidad de Lyapunov, retratos de fase y dashboard en tiempo real.
 
 Video demostrativo:
